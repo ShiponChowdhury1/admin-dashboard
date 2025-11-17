@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { Sidebar } from '@/components/sidebar';
-import { Overview } from '@/components/overview';
-import { UserList } from '@/components/user-list';
-import { Package } from '@/components/package';
-import { Payment } from '@/components/payment';
+import { Overview } from '@/components/pages/overview';
+import { UserList } from '@/components/pages/user-list';
+import { Package } from '@/components/pages/package';
+import { Payment } from '@/components/pages/payment';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -15,7 +15,13 @@ export default function Home() {
       case 'overview':
         return <Overview />;
       case 'users':
-     
+        return <UserList />;
+      case 'package':
+        return <Package />;
+      case 'payment':
+        return <Payment />;
+      default:
+        return <Overview />;
     }
   };
 

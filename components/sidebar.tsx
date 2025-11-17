@@ -2,7 +2,6 @@
 
 import { LayoutDashboard, Users, Package, CreditCard, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 
 interface SidebarProps {
   activeTab: string;
@@ -18,17 +17,16 @@ export function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   ];
 
   return (
-    <div className="w-64  bg-sidebar  flex flex-col">
+    <div className="w-64 shadow-xl border-r border-sidebar-border bg-sidebar text-sidebar-foreground flex flex-col">
       {/* Logo */}
-      <div className="p-6">
+      <div className="p-6 border-b border-sidebar-border">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg">
-              <Image src="/logo.png" alt="Logo" width={35} height={35}/>
+          <div className="w-8 h-8 rounded-lg bg-sidebar-primary flex items-center justify-center">
+            <span className="text-sidebar-primary-foreground font-bold text-lg">D</span>
           </div>
-       
+          <span className="font-bold text-lg">Dashboard</span>
         </div>
       </div>
- 
 
       {/* Navigation */}
       <nav className="flex-1 p-4 space-y-2">
@@ -40,7 +38,7 @@ export function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
               onClick={() => setActiveTab(item.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors ${
                 activeTab === item.id
-                  ? 'bg-sidebar-primary text-sidebar-primary-foreground'
+                  ? 'bg-[#2d3748] text-white'
                   : 'text-sidebar-foreground hover:bg-sidebar-accent'
               }`}
             >
@@ -52,7 +50,7 @@ export function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
       </nav>
 
       {/* Bottom Section */}
-      <div className="p-4 space-y-2">
+      <div className="border-t border-sidebar-border p-4 space-y-2">
         <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground hover:bg-sidebar-accent transition-colors">
           <User className="w-5 h-5" />
           <span className="font-medium">Profile</span>
